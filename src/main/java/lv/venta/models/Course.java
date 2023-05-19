@@ -24,6 +24,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lv.venta.models.users.Student;
 
 @Table(name = "course_table")
 @Entity
@@ -49,6 +50,9 @@ public class Course {
 	@Column(name = "CreditPoints")
 	private int creditPoints;
 	
+	@ManyToMany(mappedBy = "debtCourses")
+	private Collection<Student> debtStudents = new ArrayList<>();
+	
 	
 	public Course(
 			@NotNull @Pattern(regexp = "[A-ZĒŪĪĻĶŠĀŽČŅ]{1}[a-zēūīļķšāžčņ\\ ]+", message = "Pirmajam burtam jābūt lielajam") @Size(min = 5, max = 25) String title,
@@ -57,6 +61,7 @@ public class Course {
 		this.creditPoints = creditPoints;
 		
 	}
+	
 	
 	
 	

@@ -43,8 +43,8 @@ public class Student extends Person{
 
 	@ManyToMany
 	@JoinTable(name = "student_debt_courses_table",
-	joinColumns = @JoinColumn(name="Idc"),
-	inverseJoinColumns = @JoinColumn(name="Ids"))
+	joinColumns = @JoinColumn(name="Ids"),
+	inverseJoinColumns = @JoinColumn(name="Idc"))
 	
 	private Collection<Course> debtCourses = new ArrayList<Course>();
 	

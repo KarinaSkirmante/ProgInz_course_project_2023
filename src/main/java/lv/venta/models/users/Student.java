@@ -3,6 +3,7 @@ package lv.venta.models.users;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
@@ -23,6 +24,7 @@ import lv.venta.models.Course;
 @Getter
 @Setter
 @NoArgsConstructor
+@AttributeOverride(name = "Idp", column = @Column(name = "Ids"))
 public class Student extends Person{
 	
 	//TODO izveidot Data JPA anotācijas
@@ -40,7 +42,7 @@ public class Student extends Person{
 	@ManyToMany
 	@JoinTable(name = "student_debt_courses_table",
 	joinColumns = @JoinColumn(name="Idc"),
-	inverseJoinColumns = @JoinColumn(name="Idp"))
+	inverseJoinColumns = @JoinColumn(name="Ids"))
 	
 	private Collection<Course> debtCourses = new ArrayList<Course>();
 	

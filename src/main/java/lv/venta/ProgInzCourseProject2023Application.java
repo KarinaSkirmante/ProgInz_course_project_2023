@@ -5,12 +5,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import lv.venta.models.Comment;
 import lv.venta.models.Course;
 import lv.venta.models.Thesis;
 import lv.venta.models.users.AcademicPersonel;
 import lv.venta.models.users.Degree;
 import lv.venta.models.users.Student;
 import lv.venta.models.users.User;
+import lv.venta.repos.ICommentRepo;
 import lv.venta.repos.ICourseRepo;
 import lv.venta.repos.IThesisRepo;
 import lv.venta.repos.users.IAcademicPersonelRepo;
@@ -28,7 +30,7 @@ public class ProgInzCourseProject2023Application {
 	@Bean
 	public CommandLineRunner testModelLayer(IUserRepo userRepo, IPersonRepo personRepo,
 			IStudentRepo studentRepo, IAcademicPersonelRepo personalRepo, 
-			ICourseRepo courseRepo, IThesisRepo thesisRepo) {
+			ICourseRepo courseRepo, IThesisRepo thesisRepo, ICommentRepo commentRepo ) {
 		return new CommandLineRunner() {
 			
 			@Override
@@ -83,6 +85,10 @@ public class ProgInzCourseProject2023Application {
 				personalRepo.save(ac2);
 				
 				
+				Comment com1 = new Comment("Neprecīzs nosaukums", ac2, th1);
+				Comment com2 = new Comment("Mērķi nav atbilstoši", ac1, th1);
+				commentRepo.save(com1);
+				commentRepo.save(com2);
 				
 			}
 		};

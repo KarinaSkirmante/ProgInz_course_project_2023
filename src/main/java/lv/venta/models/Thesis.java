@@ -13,6 +13,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -102,6 +103,9 @@ public class Thesis {
 		}
 	}
 
+	@OneToMany(mappedBy = "thesis")
+	private Collection<Comment> comments;
+	
 
 	public Thesis(String titleLv, String titleEn, String aim, String tasks, Student student,
 			AcademicPersonel supervisor) {

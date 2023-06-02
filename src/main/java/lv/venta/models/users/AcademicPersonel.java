@@ -15,6 +15,7 @@ import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lv.venta.models.Comment;
 import lv.venta.models.Course;
 import lv.venta.models.Thesis;
 
@@ -49,7 +50,7 @@ public class AcademicPersonel extends Person {
 		super(name, surname, personcode, user);
 		this.degree = degree;
 	}
-	
-	
+	@OneToMany(mappedBy = "personel")
+	private Collection<Comment> comments;
 
 }

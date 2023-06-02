@@ -8,6 +8,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -34,7 +36,7 @@ Tēmas_pieejamība
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
+//@ToString
 public class Thesis {
 	@Setter(value = AccessLevel.NONE)
 	@Column(name = "Idt")
@@ -74,6 +76,9 @@ public class Thesis {
 	@Column(name ="AccDateTime")
 	private LocalDateTime accDateTime;
 	
+	@ManyToOne
+	@JoinColumn(name = "Ids")
+	private Student student;
 	
 	
 	

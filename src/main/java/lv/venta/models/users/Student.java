@@ -63,6 +63,12 @@ public class Student extends Person{
 		this.financialDebt = financialDebt;
 	}
 	
+	public void addDebtCourse(Course course) {
+		if(!debtCourses.contains(course)) {
+			debtCourses.add(course);
+		}
+	}
 	
+	//TODO izveidot removeDebtCourse
 
 }

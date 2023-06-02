@@ -62,7 +62,13 @@ public class Course {
 		
 	}
 	
+	public void addStudent(Student student) {
+		if(!debtStudents.contains(student)) {
+			debtStudents.add(student);
+		}
+	}
 	
 	
+	//TODO izveidot removeStudent
 	
 }

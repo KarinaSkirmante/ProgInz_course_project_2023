@@ -16,6 +16,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lv.venta.models.users.AcademicPersonel;
 import lv.venta.models.users.Student;
 
 /*
@@ -80,7 +81,9 @@ public class Thesis {
 	@JoinColumn(name = "Ids")
 	private Student student;
 	
-	
-	
+	@ManyToOne
+	@JoinColumn(name = "Ida")
+	private AcademicPersonel supervisor;
+	//TODO ja nepieciesams, izveidot saiti ar konsultantu/vērtētaju utt
 	
 }
